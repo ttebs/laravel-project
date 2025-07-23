@@ -45,6 +45,7 @@ Route::get('/products/{userId}', [ProductController::class, 'productsByUser']);
 Route::post('/user-purchase', [UserPurchaseController::class, 'store']);
 Route::get('/user-purchase/{userId}', [UserPurchaseController::class, 'show']);
 Route::get('/user-purchase/user/{userId}', [UserPurchaseController::class, 'getUserOrders']);
+Route::get('/user-purchases/admin', [UserPurchaseController::class, 'showAdmin']);
 
 //user store
 Route::post('/user-store', [UserStoreController::class, 'store']);

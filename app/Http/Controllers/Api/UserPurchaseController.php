@@ -76,11 +76,19 @@ class UserPurchaseController extends Controller
         return response()->json($purchases);
     }
 
+    public function showAdmin()
+    {
+        // $productIds = Product::where('seller', $userId)->pluck('id');
+
+        $purchases = UserPurchases::with(['product', 'user'])->get();
+        return response()->json($purchases);
+    }
+
 
      // Get the document for a specific user
      public function getUserOrders($userId)
      {
-         $purchase = UserPurchases::with('product')
+         $purchase = UserPurchases::with(['product', 'user'])
              ->where('user_id', $userId)
              ->get();
      
